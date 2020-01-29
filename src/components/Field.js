@@ -53,7 +53,6 @@ export default class Field extends Component {
   
       if (bombHit) {
         clearInterval(this.timer)
-        console.log(window.localStorage)
         this.setState(state => (state.field.map(s => s.map(t => t.isBomb && (t.hidden = false))), state.isLoser = true))
       }
     }
@@ -63,7 +62,6 @@ export default class Field extends Component {
 
       if (allClear) {
         clearInterval(this.timer)
-        console.log(window.localStorage)
         this.setState({isWinner: true}, () => {
           window.localStorage.setItem('JLMINESWEEPER-BEST-TIME', this.state.timer)
         })
